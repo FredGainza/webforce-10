@@ -1,0 +1,1612 @@
+•	Syntaxe, balises et attributs
+ 
+ 
+Une page HTML est composée de plusieurs balises qui définissent les différents éléments de la page (un titre, une image, un menu, un paragraphe, ...)
+Une balise HTML est délimitée par une balise ouvrante et une balise fermante <\balise> et est qualifiée par des attributs.
+ 
+•	Syntaxe générale d'une balise HTML :
+ 
+<balise ...="" attribut1="valeur1" attribut2="valeur2"> 
+   contenu de la balise 
+</balise>
+ 
+•	Règles d'écriture des balises HTML :
+ 
+•	Les balises (nom, attribut) doivent être écrites en minuscule 
+•	Les valeurs des attributs doivent être encadrées par des guillemets : "valeur"
+•	Il faut toujours "fermer" les balises (c'est à dire : écrire la balise fermante correspondante) 
+•	Une balise peut contenir également du texte et/ou des balises (la balise parent contient des balises enfant) 
+•	Il faut indenter les balises enfants. 
+•	On ne peut pas fermer une balise parent sans avoir fermé la balise enfant 
+o	FAUX : <div><p>mon paragraphe</div></p>, la balise parent </div> est fermée avant la balise enfant <p>
+o	BON : <div><p>mon paragraphe</p></div>, la balise enfant </p> est fermée avant la balise parent <div> 
+ 
+ 
+•	Indentation et commentaires
+•	L'indentation
+ 
+L'indentation consiste en l'ajout de tabulations dans un code source.
+Elle permet :
+•	de simplifier l'écriture d'un code 
+•	de faciliter la recherche de bug 
+•	d'améliorer la lisibilité du code écrit 
+•	d'optimiser la collaboration entre développeurs 
+ 
+•	Le commentaire
+ 
+Le commentaire est une description (une ou plusieurs phrases) rédigée par le développeur et qui ne sera pas affichée dans la page.
+En HTML, le commentaire est délimité par <!-- et -->.
+Ils permettent :
+•	d'expliquer les décisions prises par le développeur 
+•	de noter des idées à réaliser plus tard 
+•	de donner des explications pour comprendre le code plus tard ou pour d'autres développeurs. 
+ 
+•	Exemple de code indenté et commenté
+ 
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body>
+       <h1>Connexion</h1>
+ 
+       <!-- début div formulaire -->
+       <div>
+           <form>
+               <!-- 
+                   penser à rajouter un bouton submit pour valider le formulaire ! 
+                   -->
+               <div>
+                   <!-- 
+                       YD : 25/08/2015: j'ai fait le choix ici de ne pas utiliser de fieldset, 
+                       car les étudiants n'ont pas encore abordé cette notion.
+                   -->
+                   <label>Login</label>
+                   <input type="text" name="login" />
+               </div>
+               <div>
+                   <label>Password</label>
+                   <input type="password" name="password" />
+               </div>
+ 
+           </form>
+       </div>
+       <!-- fin div formulaire -->
+ 
+   </body>
+</html>
+ 
+•	Balises fermantes et auto-fermantes
+ 
+ 
+Les balises de type auto-fermantes sont des balises qui sont ouvrantes et fermantes en même temps. Cela signifie qu'elles ne contiennent pas de contenu. 
+On ferme donc la balise en ajoutant un espace et un slash / à la fin de la balise avant le symbole >.
+Quelques balises auto-fermantes :
+•	<link />
+•	<meta />
+•	<input />
+•	<img /> 
+ 
+ 
+•	Courte introduction au web
+•	Internet et le World Wide Web
+ 
+Ce sont deux choses différentes. Internet est un ensemble de réseaux d'objets connectés entre eux, le World Wide Web est une application spécifique d'Internet. Il existe d'autres systèmes utilisant l'Internet, comme le courrier électronique, par exemple.
+Quand deux équipements informatiques, par exemple des ordinateurs, peuvent échanger des données, ils forment un réseau. Un réseau peut être fermé, comme ceux de certaines entreprises (ce sont des intranets), ou ouvert, c'est-à dire accessibles depuis un autre réseau : ils font alors partie de l'Internet.
+Internet désigne donc l'ensemble de tous les réseaux interconnectés. Il n'appartient à personne et est en constante évolution.
+Le World Wide Web ("Toile d'araignée mondiale"), appelé souvent plus simplement le Web, est un système fonctionnant sur Internet. Il permet de rendre publiques toutes sortes de ressources, comme des fichiers texte, des images, et bien sûr des pages web.
+Une page web se présente sous la forme d'un fichier qui peut être ouvert par un ordinateur et consulté par un utilisateur. L'ensemble des pages web et des autres ressources formant un site web est stocké sur un serveur.
+ 
+•	Architecture client-serveur
+ 
+Les échanges sur le web prennent la forme d'une architecture client-serveur.
+Pour accéder au site internet hébergé sur un serveur, le terminal (ordinateur, téléphone...) doit se connecter à Internet et envoyer une requête au serveur en question. L'ordinateur qui envoie une requête est appelé client, et l'équipement informatique qui lui répond serveur.
+Le client peut lire des pages web, écrites au format HTML (HyperText Markup Language). Ce sont des fichiers au même titre qu'un document word ou photoshop. Bien sûr, il est construit différemment et possède une extension propre : .html, ou .htm. La différence avec un fichier "local" (uniquement accessible depuis le support sur lequel il est stocké) est que, pour qu'un fichier transite sur le web, il doit être véhiculé par un protocole. Le protocole en question est HTTP (HyperText Transfer Protocol).
+On peut illustrer l'ouverture d'une page web depuis un ordinateur comme ceci :
+•	Vous entrez dans un bistrot et vous commandez un café au serveur 
+•	Le serveur en prend acte et vous prépare un café. 
+•	Il dépose ensuite une tasse de breuvage fumant sous votre nez 
+Transposons cela à la visite d'une page web :
+•	Vous ouvrez votre navigateur (Firefox, Google Chrome, Safari, etc) et vous écrivez l'adresse de la page web que vous souhaitez visiter : http://www.bistrotlesdeuxamis.com/un-cafe.html Vous lancez ensuite la requête, en tapant sur "Entrée", par exemple. La requête transite sur Internet pour arriver au serveur.
+•	Le serveur rattaché au site web http://www.bistrotlesdeuxamis.com prend acte de votre requête et va chercher la ressource que vous lui demandez : le fichier nommé un-cafe.html. Il envoie ce fichier sur Internet, à destination de votre ordinateur.
+•	Votre ordinateur reçoit le fichier que vous avez demandé et l'ouvre dans le navigateur. 
+Le client peut interpréter certains types de fichiers, comme le HTML, le CSS, le JavaScript, le Java, l'ActionScript... pour afficher une page web à l'utilisateur. Généralement, une page web est constituée par un ensemble de fichiers de types différents, répondant à des rôles bien précis.
+Le serveur, pour générer ces types de documents, peut interpréter des fichiers PHP, ASP ou encore Java. On peut les voir comme une sorte de "recette de cuisine" qui construit d'autres fichiers. Ces types de fichiers sont généralement appelés des scripts.
+ 
+•	Séparation des concepts
+ 
+HTML signifie HyperText Markup Language, en français Langage de balisage hypertexte.
+Le HTML est une norme d'écriture de documents. Il est analysé, ou "interprété", par les navigateurs, comme Firefox, Chrome ou encore Internet Explorer. Il n'est pas à proprement parler un langage de programmation, mais plutôt un langage de mise en forme du contenu.
+Dans sa forme la plus simple, un document HTML peut être constitué exclusivement de texte brut. La plupart du temps cependant, il est parsemé de "code" permettant de mettre en forme le texte, et bien souvent, il contient des "références" vers d'autres fichiers.
+Les fichiers HTML sont donc des "porteurs de contenu". Par "contenu", on entend "texte", "images", "vidéos", etc.
+Différents types de fichiers peuvent être référencés dans un document HTML, comme par exemple :
+•	Des images (JPEG, GIF, PNG...)
+•	Des fichiers JavaScript, écrits dans un langage dont la fonction principale est de faire interagir la page web avec l'utilisateur, sans envoyer de nouvelle requête au serveur (exception faite du mécanisme AJAX, traité plus loin)
+•	Des fichiers CSS, dont le rôle est de "maquiller" la page rendue à l'écran 
+Quand on emploie le terme "HTML", il peut donc s'agir, soit du fichier en lui-même, dont l'extension est .html ou .htm; soit du langage de mise en forme lui-même, qui répond à diverses règles.
+ 
+•	Ressources et lectures conseillées
+ 
+Les balises et les attributs HTML sont nombreux, et on les mémorise généralement par l'usage. Il est souvent nécessaire d'avoir recours à de la documentation, qu'on peut facilement trouver sur le web.
+Pour un "dictionnaire" des tags et des attributs du HTML :
+•	Sur le MDN : https://developer.mozilla.org/fr/docs/Web/HTML/Element
+•	Sur le w3c : http://www.w3.org/TR/html-markup/elements.html
+De manière générale, vous trouverez d'excellents livres sur la programmation aux éditions Wrox et Oreilly en anglais, et Eyrolles en français. Le HTML et le CSS ne font pas défaut dans ces collections.
+En anglais :
+•	http://www.wrox.com/WileyCDA/WroxTitle/Beginning-HTML-and-CSS.productCd-1118340183.html
+•	http://www.amazon.fr/gp/product/1118008189
+En français :
+•	http://www.amazon.fr/exec/obidos/ASIN/2212129823/wwwdeveloppec-21
+•	http://www.amazon.fr/exec/obidos/ASIN/2100565281/wwwdeveloppec-21 
+ 
+•	Le W3C
+ 
+W3C signifie World Wide Web Consortium. C'est un organisme à but non lucratif dont le but est de normer et standardiser le Web. Il veut promouvoir la compatibilité des technologies du World Wide Web (notamment HTML, HTML5, XML, CSS...).
+Il définit les règles à suivre par les développeurs, et le comportement que les navigateurs doivent adopter pour ces règles. Par exemple, il va définir la liste des balises HTML, et la sémantique de chacune d'elles. Chaque développeur doit utiliser les balises de cette liste pour être certains que la plupart des navigateurs puisse afficher correctement le code HTML produit.
+Il est fondé en 1994 par Tim Berners-Lee et fonctionne à présent comme un consortium international. A l'heure actuelle, le W3C compte environ une centaine d'employés et a environ 400 partenaires dans le monde. Ensemble ils sont garants du bon respect de la charte de fonctionnement du W3C.
+Les plus grands partenaires du W3C sont :
+•	Les éditeurs des navigateurs (Mozilla Fondation, Microsoft, Apple ou Opera) 
+•	Les centres de recherches (Inria, National Research Council Canada, etc.) 
+•	Les opérateurs de réseaux 
+La leitmotiv du W3C est « Un seul web partout et pour tous » et leur devise est « Leading the Web to its full potential ».
+ 
+•	Présentation du navigateur : Chrome/Firefox
+•	Les navigateurs
+ 
+Un navigateur web est un logiciel conçu pour consulter et afficher des pages web.
+Il existe de nombreux navigateurs web, pour toutes sortes de matériels (ordinateur personnel, tablette tactile, téléphones mobiles, etc.) et pour différents systèmes d'exploitation (GNU/Linux, Windows, Mac OS, iOS et Android). Les plus utilisés à l'heure actuelle sont Google Chrome, Mozilla Firefox, Internet Explorer et Safari.
+ 
+•	Les outils pour les développeurs
+ 
+Pour le développement, il est fortement conseillé d'utiliser Google Chrome ou Mozilla Firefox, pour leurs outils pour les développeurs.
+Chrome a un inspecteur de base très évolué, accessible via le clic droit de la souris puis l'option Inspecter l'élément ou via la touche F12. On y retrouve toutes les fonctionnalités de base relatives à l'inspection du document (HTML), des fichiers (CSS, JS, images…), ainsi qu'un panel d'informations pour visualiser tout ce qu'il se passe en temps réel (chargement, requête, etc.).
+Firefox a lui aussi un inspecteur de base mais il est conseillé d'installer le plugin Firebug. Une fois installé, le débuggeur est accessible via le clic droit de la souris puis l'option Inspecter l'élément avec Firebug ou via la touche F12. Firebug est un outil de consultation et d'analyse qui permet d'éditer, débugger et monitorer le HTML, le CSS et le Javascript en live dans toute page web.
+ 
+•	Présentation de l'éditeur : SublimeText
+ 
+SublimeText est un éditeur de texte orienté pour le développement, développé en C++ et Python, et particulièrement populaire pour ses performances, ses fonctions riches et sa modularité. La dernière version stable est la 2.x tandis qu'une version 3.x est en beta actuellement. La version 1.0 est sortie le 18 janvier 2008.
+ 
+•	Orienté développement
+ 
+Parmi les nombreuses fonctionnalités disponibles, voici les principales à retenir :
+•	Coloration syntaxique (adapte la coloration du code selon le langage et sa syntaxe) 
+•	Auto-complétion (propose des noms de fonctions, variables ou autre en fonction de ce qui est tapé) 
+•	Possibilité d'ouvrir un dossier complet afin de parcourir et trouver rapidement un fichier directement depuis l'éditeur 
+•	Possibilité d'ajouter des thèmes de coloration, d'interface et des extensions pour ajouter de nouvelles fonctionnalités 
+•	Sélection et édition en parallèle de plusieurs endroits dans un même fichier. 
+•	Recherche et remplacement multiples par expression régulière 
+ 
+•	Les raccourcis à connaître
+ 
+L'un des avantages de Sublime Text, c'est aussi la quantité de commandes disponibles et souvent toutes liées à des raccourcis claviers (qu'il est d'ailleurs possible de changer complètement depuis la configuration).
+ 
+•	Rappel des raccourcis similaires aux autres logiciels:
+ 
+•	ctrl + C — Copier le texte sélectionné dans le presse-papier 
+•	ctrl + X — Couper le texte sélectionné dans le presse-papier 
+•	ctrl + V — Coller le texte contenu dans le presse-papier 
+•	ctrl + S — Sauvegarder le fichier en cours 
+•	ctrl + O — Ouvrir un fichier ou dossier 
+•	ctrl + W — Fermer le fichier en cours 
+•	ctrl + F — Chercher dans le fichier en cours 
+ 
+•	Fonctions spéciales
+ 
+Voici en plus quelques fonctions spécifiques à SublimeText, particulièrement utiles lors de phases de développement, ainsi que leur raccourci: 
+ 
+•	Aller à
+ 
+•	ctrl + P — Lorsque vous avez un dossier ouvert ou plusieurs fichiers, vous permet d'accéder directement à un fichier spécifique où qu'il soit simplement en tapant une partie de son nom. 
+•	ctrl + G — Permet d'accéder directement à une ligne spécifique du fichier en cours en tapant son numéro 
+ 
+•	Manipulation de texte
+ 
+•	ctrl + ], [ — Indenter/Désindenter la ligne ou la sélection 
+•	ctrl + ↑, ↓ — Inverse la ligne courante avec la ligne précédente ou la ligne suivante 
+•	ctrl + maj + / — Commenter/décommenter la ligne courante 
+ 
+•	Dossier de projet
+ 
+L'idéal avec Sublime Text, c'est d'ouvrir le dossier entier du projet. Cela permet d'avoir toute l'arborescence dans la barre latérale de gauche, et d'avoir tous les fichiers ouverts du projet en onglets d'une seule fenêtre, et non une fenêtre par fichiers.
+Cela permet également, via le raccourci ctrl + P cité précédemment, de naviguer rapidement d'un fichier à l'autre au sein du projet. 
+Pour ouvrir un dossier dans Sublime Text, il existe au moins 2 méthodes :
+•	Glisser-déposer le dossier depuis l'explorateur vers l'icône de Sublime Text 
+•	Ctrl+O (ou Fichier > Ouvrir), aller dans le dossier à ouvrir puis, sans sélectionner de fichier, cliquer sur le bouton "Ouvrir". 
+ 
+•	Extensions via Package Control
+ 
+Bien que Sublime Text soit extrêmement modulaire, les extensions ne sont pas forcément pratiques à installer. C'est pour quoi il existe Package Control qui s'installe via la console de Sublime Text, et permet ensuite d'installer facilement des packages supplémentaires. Une fois installé, il suffit alors d'utiliser le raccourci ctrl + maj + P afin de faire apparaître le champ de lancement de commandes, et de taper "install package" et valider pour installer un package en tapant son nom. La liste complète des packages est disponible sur cette page, et en voici quelques un très utiles :
+•	GoTo Documentation : accéder à la doc d'une fonction rapidement 
+•	SideBarEnhancements : quelques commandes supplémentaires pour le menu contextuel de la sidebar 
+•	SyncedSideBar : Synchronise la sidebar en mettant en avant le fichier actuellement visualisé 
+ 
+•	Présentation de la WF3, du rythme et du programme de la formation
+•	3 mois et demi
+ 
+Bienvenue à la WebForce3 ! C'est parti pour 3 mois et demi de développement web. C'est à la fois court (3 mois), et long (490h). Soyez donc prêts à vous investir, tout en veillant à ne pas vous épuiser pour tenir jusqu'au bout…
+ 
+•	Le programme
+ 
+Pendant ces 3 mois, nous allons voir ensemble l'essentiel, afin de vous construire une base très solide, un bagage technique vous permettant de trouver un emploi ou de vous spécialiser par vous-même à la fin de la formation. Au programme :
+ 
+•	De l'intégration : comment créer une page web, les outils et les langages (HTML / CSS) 
+•	Du développement : comment dynamiser un site web (JS, PHP, SQL…) 
+•	Les indispensables : savoir utiliser la ligne de commande, administrer un serveur, penser au référencement naturel, bonnes pratiques pour développer, s'organiser, collaborer… 
+ 
+•	Un projet : à la fin de la formation, qui fera la synthèse de toutes les compétences acquises. 
+ 
+•	Le rythme
+ 
+Au début, ça sera très difficile pour beaucoup. Il y a beaucoup de choses nouvelles à apprendre : nouveaux concepts, nouveaux langages, nouvelles manières de réfléchir. Le temps d'assimiler une notion, on est déjà en train d'aborder la suivante. On aura donc souvent l'impression d'être un peu débordé, mais pas d'inquiétude, c'est le métier qui rentre ! 
+Aussi, la grande majorité des notions sont vues et revues plusieurs fois tout au long de la formation. Si vous n'avez pas compris un élément en particulier, il sera certainement retravaillé dans un exercice futur. C'est impossible de tout comprendre du premier coup !
+Et n'oubliez pas : c'est aussi parce que c'est difficile et qu'il faut s'accrocher pour y arriver qu'il y a tant d'emplois à décrocher dans ce secteur !
+ 
+•	Conseils
+ 
+Pour finir, quelques conseils :
+•	N'hésitez jamais à demander, à interrompre le cours ou un exercice. Les formateurs sont là pour vous. 
+•	Vous êtes largués ? C'est normal ! Tenez bon, soyez attentifs pendant les explications et corrections. 
+•	Restez concentrés. La fatigue et l'afflux de notions nouvelles peut décourager, veillez à rester bien concentré pour assimiler au mieux les subtilités du développement web. 
+•	Attention à la fatigue : ne révisez pas le cours chez vous jusqu'à 2h du matin. Relisez les corrections, testez vos connaissances sur les QCM, relisez les fiches de révisions. Pas plus, c'est déjà beaucoup. 
+ 
+•	Terminologies, définitions, jargon
+ 
+Pendant cette première journée, vous avez certainement entendu beaucoup de termes techniques. Le jargon ne s'apprend pas en un jour, mais tentez tout de même de retenir les principaux termes. Il sera alors plus facile de communiquer entre développeurs !
+ 
+•	Les différentes disciplines
+•	Intégration web : la technique permettant de créer une page web, basée sur les langages HTML et CSS. 
+ 
+•	Développement web : contrairement à l'intégration web qui décrit la programmation "statique", le développement est utilisé pour décrire la programmation dynamique. Que ce soit du développement front, côté client (JS), ou du développement back, côté serveur (PHP…) 
+ 
+•	Un peu de vocabulaire
+•	Langage : c'est un ensemble de règles et de syntaxe, qui permettent de décrire un état ou une action. 
+•	Code : lignes écrites dans un langage de programmations. 
+•	Éditeur de texte : Logiciel dans lequel on écrit notre code. 
+ 
+•	Navigateur : Logiciel permettant d'afficher des pages web, qu'on appelle aussi « client ». Chrome ou Firefox par exemple. 
+ 
+•	Le HTML
+•	HTML : Langage permettant de décrire le contenu d'une page web. 
+•	Balise : Element syntaxique de base du langage html : <balise>. Par exemple, pour un paragraphe : <p>. 
+ 
+•	Attribut : Un attribut HTML permet d'ajouter une information sur une balise HTML : <balise attribut="valeur">. Par exemple, pour un champ de saisie : <input type="text"> 
+ 
+•	CSS
+ 
+Les CSS permettent de styliser une page html, il existe 3 méthodes pour ajouter des CSS à votre fichier HTML
+•	<link> — Cette balise HTML permet de lier entre autres des feuilles de styles. Elle se trouve dans le <head> de la page
+•	@import — Cette règle CSS peut être utilisée de deux façons:
+o	Entre les balises <style> et </style> dans la section <head> d'une page HTML 
+o	Au début d'un fichier CSS, pour inclure une ou plusieurs autres feuilles de styles 
+•	style=”” — Cet attribut HTML ajoute ou modifie le style CSS de l'element qui le porte. C'est ici que l'on trouve les styles appliqués par le biais de JavaScript 
+ 
+•	Exemples
+•	Balise
+ 
+Dans le d'un fichier HTML :
+<link href='./chemin/vers/styles.css' rel='stylesheet' type='text/css' media=”all”/>
+ 
+•	Règle @import
+ 
+Dans le d'un fichier HTML :
+<style type="text/css">@import url(“styles/layout.css”)</style>
+ 
+•	Dans un fichier CSS
+ 
+@import url(“styles/styles.css”);
+ou :
+@import "styles/module.css";
+ 
+•	Attribut HTML style
+ 
+<div style=”background-color:white; width:150px;”></div>
+ 
+•	Séparation des concepts
+ 
+Comme leur nom l'indique HTML et CSS sont complémentaires, et ont chacun leur rôle :
+HTML : Hypertext Markup Language (ou Langage de Balisage Hypertexte) est un language de structuration sémantique, c’est à dire que l’on décrit la nature des objets constituant la page.
+CSS : Cascading Styles Sheet (ou Feuilles de Styles en Cascade) est un langage de description de styles. Il est incapable de créer du contenu, ou de modifier la nature de celui-ci. Il ne sert qu'à décrire son apparence
+ 
+•	Exemples
+ 
+Dans cet exemple le HTML sert de structure de texte et donne des informations sur sa nature: “titre” ou “extrait”
+ 
+ 
+•	Hello World
+ 
+All your bases are belong to us
+Dans cet exemple le CSS n’a pas ajouté de contenu, ni modifié la nature, ni la structure des éléments.
+.card {
+   background-color : lightgray;
+}
+.card__title {
+   color     : black;
+   font-size : 30px;
+}
+.card__excerpt {
+   color     : darkgray;
+   font-size : 14px;
+}
+L'avantage de cette séparation des concepts est de pouvoir modifier la structure du html sans se soucier des styles associés et réciproquement changer l'apparence sans mettre à jour la structure.
+ 
+•	Syntaxe, sélecteurs simples, propriétés
+ 
+La syntaxe du CSS est très simple, celui-ci n'étant pas un langage de programmation. La syntaxe est toujours la même :
+element {
+   propriete: valeur;
+}
+Nous devons tout d'abord indiquer quel élément de la page nous voulons styliser.
+Pour cibler un ou plusieurs éléments dans l'arbre HTML, il existe plusieurs méthodes :
+•	l'élément lui même 
+•	son #id 
+•	sa .classe 
+•	un attribut 
+ 
+•	Exemples
+ 
+Prenons cette balise HTML
+<div id="mon_id" class="box-example" title="example">Lorem ipsum dolor sit...</div>
+Nous pouvons la sélectionner de plusieurs façon en CSS
+/* Avec l'id */
+#mon_id {
+   propriete : valeur
+}
+ 
+/* Avec la class */
+.box-example {
+   propriete : valeur
+}
+ 
+/* Avec l'élément */
+div {
+   propriete : valeur
+}
+ 
+/* Avec un attribut */
+[title="example"] {
+   propriete : valeur
+}
+ 
+•	Mise en forme typographique avec les CSS
+ 
+Les textes sont les éléments les plus importants dans une page, ils représentent la majorité du contenu. Il est important de bien les styliser:
+•	color : définit la couleur du texte, cette couleur peut être exprimée de plusieurs façons: nomdelacouleur, #RGB | #RRGGBB (notations hexadécimales) et rgb(RRR, VVV, BBB) (notation décimale). 
+•	font-size : définit la taille du texte, celle-ci peut être exprimée en px(pixels) , pt(points), em ou rem. 
+•	font-family : définit la police à utiliser, notez qu'il est possible de définir plusieurs alternatives au cas où l'on ne puisse utiliser la première. 
+•	font-weight : définit le poids de la police, il peut être défini par des mots clés tels que bolder , lighter ou par des multiples de 100 (entre 100 et 900). 
+•	text-transform : permet de modifier la casse d'un texte avec les mots-clés suivant capitalize, uppercase, lowercase, none. 
+•	text-decoration : permet de souligner, surligner ou barrer un texte avec les mots-clés underline, overline, ligne-through. 
+ 
+•	Exemples
+ 
+.extrait{
+ /* Color */
+ color : LightSlateGray;   /* Mot clé de la couleur */
+ color : #778899;          /* Notation Hexadécimale */
+ color : rgb(119,136,153); /* Notation Décimale*/
+ 
+ /* Font Size */
+ font-size : 15px; /* Pixels */
+ font-size : 12pt; /* Points */
+ font-size : 1em;  /* EM */
+ font-size : 1rem; /* Root EM */
+ 
+ /* Font Family */
+ font-family : Helvetica, Arial, sans-serif; /* Si Helvetica n'est pas présente c'est Arial qui sera chargé */
+ 
+ /* Font Weight */
+ font-weight : bolder; /* Mot clé */
+ font-weight : 900;  
+ 
+ /* Text Tranform */
+ text-transform: uppercase;
+ 
+ /* Text Decoration */
+ text-decoration: underline;
+}
+ 
+•	Ajout d'images en CSS
+ 
+Les images en CSS s'utilisent grâce à la propriété background-image avec la syntaxe suivante:
+.my-bloc{
+ background-image: url("chemin/vers/image.png");
+}
+/* Un élément HTML peut avoir plusieurs images d'arrière plan */
+.my-bloc {
+ background-image: url("chemin/vers/image.png"), url("chemin/vers/image2.png");
+}
+Les images CSS sont des décorations contrairement aux <img> HTML et peuvent être positionnées et répétées grâce aux propriétés complémentaires:
+•	background-position indique la position initiale de l'image 
+•	background-size indique la dimension de l'image 
+•	background-repeat indique comment l'image doit être répétée 
+.my-bloc{
+background-image: url("chemin/vers/image.png");
+background-position: center center;
+background-size: auto;
+background-repeat: no-repeat;
+}
+/* ou en version courte */
+.my-bloc{
+background: url("chemin/vers/image.png") center center auto no-repeat;
+}
+ 
+•	Arborescence de fichiers, organisation, raccourcis clavier, bonnes pratiques
+ 
+Arborescence de fichiers et organisation
+Le dossier de votre site doit contenir au minimum un dossier dédié aux images ("img") et un autre dédié aux feuilles de style ("CSS"). Lorsqu'un fichier CSS fait référence à une image, par exemple via la propriété background-image, le chemin du fichier est toujours relatif au fichier CSS et non au document HTML.
+Exemple d'arborescence :
+•	/index.html
+•	/img/fond.png
+•	/css/style.css
+Contenu du fichier style.css :
+body { 
+   background-image: url('../img/fond.png');
+}
+La première partie du chemin (../) permet de remonter au niveau parent de l'arborescence par rapport à l'emplacement du fichier CSS, c'est-à-dire la racine du projet.
+Vous pourriez également décider de positionner le dossier img en tant que sous-dossier de css et le chemin de fichier pour la propriété background-image serait alors tout simplement : img/fond.png
+D'une manière générale, évitez d'utiliser des chemins absolus (chemins qui commencent par /) lorsque vous référencez des fichiers (images, feuilles de styles, etc.).
+Raccourcis clavier
+Ne sous-estimez pas le temps que vous allez gagner en utilisant des raccourcis clavier ! Prenez donc l'habitude de les découvrir dans l'interface des logiciels que vous utilisez et surtout de les utiliser. En voici quelques-uns :
+•	CTRL+C : copie dans le presse-papier le texte sélectionné (copy, copier) 
+•	CTRL+V : colle dans l'éditeur de texte le texte que vous aviez préalable copié (paste, coller) 
+•	CTRL+X : copie dans le presse-papier le texte sélectionné (comme CTRL-C) et en plus supprime ce texte (cut, couper) 
+Spécifiques à SublimeText :
+•	CTRL+S : enregistre le fichier courant. Ce raccourci est extrêmement répandu pour tous les logiciels qui permettent d'éditer du texte. 
+•	CTRL+P : affiche une boîte de recherche qui permet d'ouvrir n'importe quel fichier du projet en tapant uniquement quelques lettres de son nom 
+•	CTRL+F : permet d'effectuer une recherche à l'intérieur du fichier courant 
+ 
+•	block et inline
+ 
+En HTML la plupart des balises ont un comportement par défaut par exemple:
+o	Les éléments comme div, p, header, footer renvoient les éléments à la ligne peu importe leur contenu, ils ont un comportement de type block. 
+o	Les éléments comme span, em, label ont un comportement inline, c'est à dire qu'ils s'enchainent à la suite des un des autres dès que leur contenu est fini: 
+<!-- Comportement `inline`-->
+<span> Cette phrase est </span>
+<span> sur une seule ligne</span>
+ 
+<!-- Comportement `block` -->
+<div> Cette phrase</div>
+<div>passe à la ligne</div>
+Ce comportement par défaut s'utilise avec la valeur initial.
+Mais ce comportement est modifiable grâce à la propriété CSS display
+span{ /* Par défaut en ligne*/
+ display: block;  /* Donne le comportement bloc */
+}
+div{ /* Par défaut en bloc*/
+ display: inline; /* Donne le comportement en-ligne */
+}
+ 
+•	Dimensions et marges
+ 
+Pour structurer nos éléments nous pouvons définir la dimensions de leur zone de contenu grace aux propriétés widthet height de la manière suivante:
+.element{
+ height: 100px;  /* les dimensions peuvent être exprimé de plusieurs façon: px, rem, % */
+ width: auto; /* elle peut aussi prendre la valeur auto */
+}
+La zone de contenu est à l'intérieur du padding, des bordures et marges de l'élément.
+•	padding est la marge interne de notre élément qui sépare le contenu du bord 
+•	border défini la limite entre l'intérieur et l'extérieur 
+•	margin est la marge externe séparant notre élément de ceux qui l'entourent 
+Ces trois propriétés ont en commun qu'elles peuvent être définies indépendamment pour chacun des côtés de notre élément:
+.element{
+ margin-top: 10px;
+ margin-right:  5%;
+ padding-bottom: 3em;
+ border-left: 1px solid gray;
+}
+Il est possible d'utiliser des notations courtes afin de définir plusieurs côtés à la fois.
+.element{
+ margin: 5%;                /* tout les côtés ont une marge de 5% */
+ margin: 10px;              /* tout les côtés ont une marge de 10px */
+ margin: 1.6em 20px;        /* le haut et le bas ont une marge de 1.6em et la gauche et la droite de 20px */
+ margin: 10px 3% 1em;       /* le haut a une marge de 10px, la gauche et la droite de 3% et le bas de 1em */
+ margin: 10px 3px 30px 5px; /* le haut a une marge de 10px, la droite de 3px, le bas de 30px et la gauche de 5px */
+ margin: 1em auto;          /* la marge pour le haut et le bas est de 1em et le bloc est centré horizontalement */
+ margin: auto;              /* le bloc est centré horizontalement, la marge pour le haut et le bas est de 0 */
+}
+ 
+•	Positionnement en CSS, premiers pas
+ 
+Le positionnement normal des éléments HTML correspond à l'ordre dans lequel ils sont déclarés. Cette liste d'éléments successifs définit un flux d'éléments se suivant les un les autres, qu'ils soient block ou inline. 
+Lorsqu'une série d'éléments se trouve à l'intérieur d'un autre, celle-ci possède son propre flux relatif à son conteneur.
+Il est possible en CSS de sortir un élément de ce flux, grace à la propriété float:
+ <p class="container">
+   <span class="float-element">HELLO!</span>
+   Ceci est un texte. Ceci est un texte. Ceci est un texte.
+ </p>
+.float-element{
+ float: right; /* Peut prendre les valeurs left, right, none, inherit */
+}
+Normalement ce texte s'enchaine l'un après l'autre, pourtant grace aux styles. Le texte à l'intérieur de .container se comporte comme si .float-element n'était pas présent.
+Avec float, il est possible de faire se positionner côte à côte deux éléments pourtant disposés en block.
+Il est possible également de forcer la reprise d'un flux après un élément disposé en floatgrace à la propriété clear
+.clear-element{
+ clear: both; /* Peut prendre les valeurs left, right, both, inherit */
+}
+ 
+•	Indentation et commentaires
+ 
+Un code propre et lisible facilite le travail, c'est pour cela que les conventions sont importantes.
+Pour conserver une lisibilité, il est recommandé d'indenter les propriétés par rapport au sélecteur. On peut également indenter les sélecteurs qui correspondent à des enfants. Par exemple, pour le code html suivant :
+<div class="widget">
+ <div class="widget-heading"></div>
+</div>
+On peut écrire le css suivant :
+.widget {
+ padding: 10px;
+ border: 1px solid #BADA55;
+}
+ .widget-heading {
+   font-size: 1.5rem;
+   line-height: 1;
+ }
+ 
+Les commentaires sont importants pour donner des informations aux autres développeurs (ou à vous même). Dans un fichier CSS qui peut devenir long, il est important d'indiquer en commentaire à quoi correspondent notre code, surtout lorsque le sélecteur n'est pas immédiatement compréhensible.
+/* Menu de navigation */
+#navigation {
+ …
+}
+ 
+•	Ressources et lectures conseillées
+ 
+Même si une recherche sur Google est souvent le moyen le plus rapide pour obtenir une réponse à un problème rencontré, cette technique a également des inconvénients :
+•	les résultats peuvent contenir des solutions obsolètes, incorrectes ou des mauvais pratiques, notamment via les forums de discussion 
+•	ce n'est pas toujours facile de formuler une requête de recherche efficace et qui fera remonter des résultats pertinents 
+Pour ces raisons, il convient de connaître quelques sites de références dont le contenu est généralement exact, à jour et aligné sur les bonnes pratiques de développeurs.
+Ressources utiles: 
+•	Mozilla Developer Network - MDN : site francophone de référence pour les technologies Frontend, notamment HTML, CSS et JavaScript
+•	Alsacreations : communauté francophone dédiée principalement aux langages Frontend et aux standards du web (actualité, tutoriel, forum de discussion, offres d'emploi, etc.) 
+•	Stack Overflow : site communautaire très actif de questions/réponses avec modération par la communauté (en anglais) 
+•	Can I Use : ce site permet de vérifier très rapidement l'état de la compatibilité entre les différents navigateurs vis-à-vis de fonctionnalités modernes et parfois pas encore disponibles sur toutes les versions des navigateurs répandus. Par exemple Flexbox. 
+•	WebPlatform : site communautaire de documentation et exemples sur les technologies Frontend (en anglais). 
+Il peut également être très intéressant de suivre les blogs de développeurs reconnus, tels que :
+•	Brad Frost
+•	David Walsh
+•	Lea Verrou
+•	Sara Soueidan
+•	Chris Coyier
+•	Stephanie Walter
+•	Hugo Giraudel
+Même si à ce stade vous ne comprenez pas encore tout ce qu'ils disent, n'hésitez pas à revenir sur leur site dans quelques semaines !
+ 
+•	Reset et Normalize
+ 
+Tous les navigateurs appliquent des propriétés et valeurs par défaut en CSS pour les différents éléments HTML. 
+Par exemple, la plupart d'entre eux appliqueront list-style-type: disc; sur les <ul> afficher d'afficher systématiquement les éléments de la liste avec une puce.
+Chrome et Firefox appliquent également un padding de 40px sur ce même élément, afficher d'afficher proprement la puce et le texte indenté. 
+Cela peut vous poser problème si vous vous contentez de re-définir list-style-type par exemple, vous pourriez avoir un padding différent selon le navigateur.
+ 
+•	Reset & Normalize
+ 
+Il est courant d'utiliser dans ce cas là d'utiliser un Reset ou Normalize. 
+Le Reset, au nom plutôt explicite, va se contenter de mettre toutes les propriétés de tous les éléments HTML à 0 ou une valeur similaire, de façon à ce que ce soit pareil pour tous les navigateurs. Mais cela signifie que vous devrez ré-définir certaines propriétés pour que le contenu s'affiche convenablement dans certains cas. Les balises bet strong n'afficheront plus le contenu en gras par défaut, et les listes n'auront plus du tout de puce.
+Normalize part du même principe que le reset — avoir le même rendu par défaut sur tous les navigateurs — à l'exception qu'il ne va pas mettre toutes les propriétés à 0 ou équivalent mais tenter d'appliquer un style par défaut identique à tous, en prenant en compte chaque spécificité des navigateurs et le plus souvent en tentant de corriger certains bugs propres à des navigateurs spécifiques. 
+ 
+•	Utilisation
+ 
+Que l'on utilise l'un ou l'autre, ils doivent toujours être utilisé en premier avant tout autre style dans la page, pour la simple raison qu'ils sont destinés à changer les styles par défaut des navigateurs, et non à écraser les styles que l'on aura défini pour le projet.
+ 
+•	Reset
+ 
+Le reset le plus utilisé est celui d'Eric Meyer, accessible sur cette page, et s'utilise donc comme suit:
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8" />
+       <title>Ma page</title>
+ 
+       <link rel="stylesheet" href="css/reset.css" />
+       <link rel="stylesheet" href="css/main.css" />
+   </head>
+   <body>
+       <!-- Le corps de ma page -->
+   </body>
+</html>
+Le fichier main.css étant ici la feuille de style propre au projet, et donc appelée après le reset.
+ 
+•	Normalize
+ 
+Normalize.css peut-être récupéré depuis cette page, et il s'utilise exactement de la même façon que le reset :
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8" />
+       <title>Ma page</title>
+ 
+       <link rel="stylesheet" href="css/normalize.css" />
+       <link rel="stylesheet" href="css/main.css" />
+   </head>
+   <body>
+       <!-- Le corps de ma page -->
+   </body>
+</html>
+ 
+•	Les deux
+ 
+Dans le cas où l'on souhaiterait utiliser les deux en même temps (bien que cela puisse faire beaucoup), le Reset doit être appelé avant Normalize auquel cas il risquerait d'en annuler les effets.
+ 
+•	Sélecteurs avancés
+•	Les sélecteurs d'enfants, d'enfants adjacents et d'enfants successeurs
+•	Sélecteur d'enfants >
+ 
+Une balise enfant est directement imbriquée dans la balise de niveau supérieur (Penser à la relation père et enfant).
+Une balise descendante est imbriquée dans une autre balise, mais il peut exister des niveaux intermédiaires (Comme un grand-père et un petit-enfant).
+Supposons le code HTML suivant :
+<section id="content"> 
+    <div class="container">
+         <p>Paragraphe 1</p>
+         <p>Paragraphe 2</p>
+    </div>
+    <p>Paragraphe 3</p>
+</section>
+Dans cet exemple, les paragraphes 1 et 2 sont définis dans des balises <p> descendants de la balise <section>. Admettons que nous voulions ajouter un style particulier aux paragraphes faisant partie de la section content, mais uniquement s'ils ne sont pas imbriqués dans une balise intermédiaire. On pourra alors utiliser le sélecteur d'enfant >.
+section#content > p
+Le style qui suivra concernera uniquement le paragraphe 3.
+ 
+•	Sélecteur d'enfants adjacents +
+ 
+Notation : A + B. L'enfant adjacent est l'élément B, ayant le même parent que A et le suivant immédiatement.
+Exemple :
+<body>
+    <h1>Menu</h1>
+    <h2>Filets de merlu au pinot des charentes</h2>
+    ...
+    <h2>Risotto asperges-citron vert</h2>
+</body>
+Le sélecteur h1 + h2 vise la première balise <h2>, car c'est la seule à suivre directement une balise <h1>
+ 
+•	Sélecteur d'enfants successeurs ~
+ 
+Il est moins exigeant que le sélecteur précédent. Là ou le sélecteur A + B vise le premier élément B suivant A, A ~ B sélectionnera l'ensemble des éléments B suivant un élément A.
+Par exemple, considérons le code HTML suivant :
+    <div>Voici un div</div>
+    <section id="first">
+         Arabica
+    </section>
+    <p>Premier paragraphe.</p>
+    <section id="second">
+         Robusta
+    </section>
+    <h2>La même liste</h2>
+    <section id="third">
+         Blend
+    </section>
+Le sélecteur section + div ciblerait la première liste (#second). Le sélecteur p ~ section, quant à lui, permettra de modifier le style de #second et de #third.
+ 
+•	Les pseudo-classes
+ 
+Une pseudo-classe permet d'appliquer une décoration à un élément sur des critères qui ne sont pas forcément du ressort du code HTML, par exemple l'état d'un élément de formulaire (case cochée, champ en cours d'édition..).
+ 
+•	Éléments survolés : :hover
+ 
+Il est possible d'ajouter un style à un élément lorsque le pointeur de la souris survole celui-ci. Il suffit de préciser dans le sélecteur la pseudo-classe :hover à la fin de celui-ci.
+ 
+•	Éléments sélectionnés : :focus
+ 
+Permet de modifier le style d'un élément qui reçoit le "focus". Cela sera fait, soit en cliquant sur l'élément concerné, soit en utilisant le clavier (appui sur la touche "Tabulation").
+ 
+•	Éléments actifs : :active
+ 
+Cette pseudo-classe permet de définir l'apparence d'un élément au moment ou l'utilisateur clique dessus. Il s'agit généralement d'un élément <button> ou <a>, mais elle peut être utilisée dans d'autres cas.
+ 
+•	Premier enfant : :first-child
+ 
+Cette pseudo-classe ne dépend pas vraiment de l'utilisateur, mais elle comble un manque dans les opérateurs de sélection +, > ou encore ~. Elle permet d'atteindre le premier élément parmi les autres du même parent, correspondant au sélecteur.
+Considérons le code HTML suivant :
+    <div>
+         <span>Hello, Dolly</span>
+         <span>Basin Street Blues</span>
+         <span>Blueberry Hill</span>
+    </div>
+    <div>
+         <span>Moonlight in Vermont</span>
+         <span>A-Tisket A-tasket</span>
+         <span>I Got Rythm</span>
+    </div>
+Ainsi que la feuille de style liée :
+span:first-child {
+    font-size: 200%;
+}
+La directive contenue dans le fichier CSS doublera la taille de la police des premiers éléments de chaque <div> : "Hello, Dolly" et "Moonlight in Vermont".
+ 
+•	Priorité et poids des sélecteurs
+ 
+Toutes les règles CSS ne naissent pas égales.
+Si l'une d'entre elles spécifie que le titre doit être rouge et une autre spécifie qu'il doit être bleu, il faut un moyen de départager les deux.
+C'est pour cette raison que tous les sélecteurs et pseudo-sélecteurs ont un poids.
+Plus une règle a de poids, plus elle a d'importance et plus elle aura donc de chances de prendre le dessus.
+Ce poids est défini en fonction du type de sélecteur utilisé; du plus léger au plus lourd
+•	Sélecteurs universels (*) 
+•	Sélecteurs de tags (div) et pseudo-éléments (:before) 
+•	Sélecteurs de classe (.titre), d'attributs (type="radio") et pseudo-classes (:hover) 
+•	Sélecteurs d'id (#footer) 
+<div id="conteneur" class="parent">
+   <div class="zone">
+       <span>Bla bla</span>
+   </div>
+</div>
+#conteneur span{
+   color : green; // Le sélecteur d'id a plus d'importance que le sélecteur de classe, la couleur sera donc verte
+}
+.zone span{
+   color : red;
+}
+ 
+Le poids augmente aussi même si on utilise plusieurs sélecteurs de même type.
+.parent .zone span{ // Cette règle l'emporte, il y a deux sélecteurs de classe
+   color : yellow;
+}
+.zone span{ // Il n'y a qu'un sélecteur de classe ici, cette règle est considérée comme moins importante
+   color : pink;
+}
+ 
+Si deux règles ont un poids égal, c'est la dernière écrite qui l'emporte.
+Aussi, une règle écrite dans un attribut style prendra le pas sur toutes les autres.
+⚠ Il y a une exception, !important qui aura toujours la priorité la plus haute.
+ 
+•	Positionnement CSS, solutions avancées
+ 
+position permet de spécifier un positionnement particulier pour l'élément en question.
+Plusieurs valeurs sont possibles :
+•	static
+•	relative
+•	absolute
+•	fixed
+static, qui est la valeur par défaut dispose les éléments selon leur flux naturel.
+relative dispose tout d'abord les éléments dans leur flux naturel et les déplace ensuite d'une distance égale aux valeurs top|right|bottom|left sans modifier l'agencement des éléments voisins. Visuellement, l'élément a été déplacé mais ses voisins sont placés comme s'il était à son emplacement initial.
+absolute fait sortir l'élément du flux: le moteur de rendu ne prévoit pas d'espace pour lui.
+Son point de référence devient le parent positionné (qui a une position autre que static) le plus proche. Si tout ses parents sont static, il sera positionné par rapport à la racine html. Les valeurs top|right|bottom|left déplacent l'élément par rapport à ce point de référence.
+Pour les éléments en fixed, le moteur ne prévoit pas d'espace pour eux non plus.
+Ils sont placés à la position spécifiée et ce de façon relative à la fenêtre d'affichage.
+Concrètement, cela veut dire qu'un élément en position: fixed restera à la même position sur l'écran lorsque l'utilisateur scrolle dans la page.
+ 
+•	Images : notions supplémentaires
+ 
+Deux propriétés supplémentaires sont disponibles pour placer les images de fond (background) en CSS :
+•	background-repeat
+•	background-position
+background-repeat sert à définir une répétition ou non de l'image. Peu utilisée quand l'image est une photo, elle devient très utile en trame de fond.
+La valeur repeat fait se répéter l'image sur les axes horizontal et vertical, repeat-x sur l'axe horizontal seulement et repeat-y sur l'axe vertical seulement. no-repeat ne fait afficher l'image qu'une seule fois.
+ 
+background-position définit l'emplacement initial de l'image de fond par rapport à son conteneur. Par défaut, la propriété prend les valeurs 0 0, le fond est ainsi placé tout en haut à gauche.
+background-position : 50px 200px; place l'image de fond à 50 px à gauche et 200px du haut du conteneur.
+Les pourcentages fonctionnent de manière un peu différente : une valeur de 50% placerait le milieu de l'image (50%) au milieu de son conteneur (50%).
+Une valeur de 100% place la partie droite de l'image à la droite de son conteneur, collant l'image tout à droite.
+Des mots-clés peuvent être utilisés à la place des pourcentages :
+•	top correspond à 0% en vertical
+•	bottom correspond à 100% en vertical
+•	left correspond à 0% en horizontal
+•	right correspond à 100% en horizontal
+S'il n'y a que des mots-clés d'utilisés, l'ordre n'est pas important, le contexte permet de comprendre la position de l'image.
+ 
+•	CSS3
+•	Qu'est-ce que le CSS3 ?
+ 
+CSS est l'abréviation de « Cascading Style Sheets ». CSS3 est la dernière version standard de CSS et est rétro-compatible avec les anciennes versions. CSS3 est un langage qui permet de définir la présentation(mise en page) des documents HTML. Il vous permet de choisir la police sur votre site, la couleur des textes et bien plus encore!
+CSS3 gère notamment les polices, les couleurs, les marges, les lignes, la hauteur, la largeur, les images, les arrière-plans, les positionnements, les animations, des effets, des actions, etc. CSS3 est pris en charge par tous les navigateurs actuels. Pour voir toutes les possibilités permises par le CSS3, consultez cette article.
+ 
+•	Les préfixes vendeurs
+ 
+Ils sont apparus afin d'intégrer les propriétés CSS3 encore non-standardisées par le W3C. Ce sont des préfixes à ajouter devant une propriété CSS. Chaque préfixe correspond à un moteur de rendu qui équipe différents navigateurs. Vous avez donc compris, grâce à ce préfixe, seul certains navigateurs avec un tel moteur de rendu vas interpréter cette propriété CSS. Voilà les principales préfixes que vous pouvez utiliser :
+•	-webkit- : préfixe pour le moteur WebKit, qui équipe Chrome, Safari, Opera... 
+•	-moz- : préfixe pour le moteur Gecko développé par Mozilla et qui est donc utilisé par Firefox 
+•	-ms- : préfixe pour le moteur Trident développé par Microsoft, utilisé par Internet Explorer 
+•	-o- : préfixe pour le moteur Presto, jusqu'à très récemment utilisé par Opera, qui a maintenant migré sur Blink, la version personnalisée de WebKit par Google (qui équipe aussi Chrome, donc). 
+Exemple :
+a {
+   -webkit-transition: all 1s ease;
+}
+/* Seuls les navigateurs avec le moteur de rendu webkit vont interpréter cette propriété CSS de transition. */
+ 
+•	Principales nouveautés dans CSS3
+•	Les médias queries - Permet de répondre à l’essor de la mobilité avec le responsive design. 
+•	Des nouveaux sélecteurs très précis - Exemple : Sélecteur de ligne paires/impaires, élement avec/sans enfant, du premier ou du dernier enfant, élément avec un texte donné, etc 
+•	Les arrière-plans multiples et les dégradés - Permet d'avoir plusieurs niveaux d'arrière plans et faire des dégradé de couleurs sans passer par une image. 
+•	Les transitions CSS - Permet de faire des animations avec les éléments HTML et leur propiété CSS. 
+•	Les polices non-standards - Avec la propriété @font-face qui permet de définir une police externe que l’on pourra trouver à une url donnée. 
+•	La gestion de la transparence - Il est maintenant possible de jouer sur la transparence avec la fonction Rgba. 
+ 
+•	Les coins arrondis - Ce qui avant était une tâche ardue devient un jeu d'enfant avec la propriété border-radius. 
+ 
+•	Les nouvelles balises HTML5
+ 
+Avec l'arrivée de la version 5 de HTML, voici les nouvelles balises qu'il est possible d'utiliser :
+•	<main> : principal contenu de la page, un seul élément <main> par page. 
+•	<section> : définit une section regroupant des éléments par similarités ( thématique, fonctionnelle, applicative, ... ) 
+•	<article> : balise des blocs de contenu utiles que l'on pourrait extraire du document tout en conservant leur sens et leurs informations. 
+•	<header> : définit l'entête d'un document, d'une <section> ou d'un <article>
+•	<footer> : définit le pied de page, d'une <section> ou d'un <article>
+•	<aside> : permet de spécifier du contenu annexe à un élément de la page ( définition d'un mot, biographie de l'auteur de l'article, ... ) 
+•	<nav> : permet de spécifier les éléments de navigation de la page ou de navigation interne 
+•	<figure> : sert de conteneur pour divers éléments comme des images, des schémas, des vidéos, des tableaux ou encore des blocs de code. Peut contenir une balise <figcaption> afin de donner un titre à un ou plusieurs éléments contenu dans cette balise <figure>
+•	<time> : représente une date et/ou un temps 
+ 
+•	Fonts
+ 
+Avant l'arrivée de CSS3, il était impossible d'utiliser des fonts personnalisées sur son site. Seules les fonts standards étaient autorisées (Arial, Helvetica, Times new roman, etc).
+Désormais grâce à la règle @font-face on peut à présent utiliser des polices de caractères non standards. Tous les navigateurs web récents supportent cette fonctionnalité.
+La police de caractères doit être placée sur un serveur et accessible en lecture. Comme pour une image, elle sera chargée au moment de l'appel de la feuille de style dans laquelle est déclarée. Comme pour les images, des droits d'auteurs s'appliquent donc. Il faut donc n'utiliser que des fontes dont on est en accord avec la licence. De plus, dans un souci de performance, il ne faut pas choisir des polices trop lourdes en poids pour le chargement de la page.
+Les différents formats de fontes pris en charge :
+ 
+•	TrueType Fonts (TTF)
+•	OpenType Fonts (OTF)
+•	The Web Open Font Format (WOFF)
+•	The Web Open Font Format (WOFF 2.0)
+•	SVG Fonts/Shapes
+ 
+•	Embedded OpenType Fonts (EOT)
+Pour voir la compatibilité avec les navigateurs, consultez cet article.
+Pour déclarer une nouvelle fonte dans votre feuille de style :
+@font-face {
+   font-family: maFontePersonnalise;
+   src: url(/fonts/ma_fonte.woff);
+}
+Vous pouvez maintenant l'utiliser partout dans votre feuille de style
+body {
+   font-family: maFontePersonnalise;
+}
+Une petite particularité, si vous voulez utiliser votre fonte personnalisé en bold. Vous devez déclarer une 2e règle font-face avec la propriété font-weight avec le même pour font-family.
+@font-face {
+   font-family: maFontePersonnalise;
+   src: url(ma_fonte_bold.woff);
+   font-weight: bold;
+}
+Attention cependant, tous les navigateurs n'acceptent pas tous les formats de fonts. Pour que la fonte soit compatible avec tous, il faut avoir la font sous tous les formats et les déclarer dans l'attribut src.
+@font-face {
+   font-family: 'maFontePersonnalise';
+   src: url('ma_fonte.eot');
+   src: url('ma_fonte.otf') format('truetype'),
+        url('ma_fonte.woff') format('woff'),
+        url('ma_fonte.eot') format('embedded-opentype'),
+        url('ma_fonte.svg') format('svg');
+}
+ 
+•	Google Fonts
+ 
+Google Fonts est un service d’hébergement gratuit de polices d’écritures pour le Web. Ces fonts sont sous licences libres. Google Fonts propose un large choix fonts de qualité et les héberge sur son CDN. N'hésitez pas à les utiliser pour vos sites car ces fonts sont accessibles, de qualité et gratuits.
+ 
+ 
+•	Le Responsive Design
+ 
+La notion de responsive représente la capacité pour un site web à s'adapter quelque soit la taille de l'écran et l'appareil utilisé, et ce sans nécessairement détecter le type d'appareil (ordinateur, tablette, smartphone) ni recharger la page. 
+Cela permet généralement à l'utilisateur d'accéder exactement au même contenu mais avec l'expérience la plus adaptée à son appareil.
+Si par exemple votre site fait normalement 1200px de large, vous n'allez pas lui présenter à cette taille sur un mobile, ça l'obligerait à zoomer pour en voir correctement le contenu.
+Avec les moyens techniques liés au responsive, vous allez pouvoir adapter votre design spécifiquement pour des tailles d'écran réduites, à condition bien sûr que votre design ait été pensé de cette façon.
+ 
+ 
+•	Les problématiques
+ 
+Malgré les moyens techniques à disposition, cela ne veut pas dire que n'importe quel design peut-être facilement adapté à toutes les tailles d'écran.
+En responsive, la structure HTML ne changera pas selon la taille d'écran, c'est uniquement le CSS qui adapte votre site (et éventuellement du JavaScript si nécessaire). 
+Mais améliore l'expérience utilisateur ne se limite pas à la taille de l'écran utilisé.
+Sur un mobile par exemple, il sera plus pratique d'avoir une adresse mail directe ou un numéro de téléphone plutôt qu'un formulaire de contact moins pratique à remplir (ou moins direct). Il faut alors déterminer ce qui est le plus pertinent, voir mettre les deux à disposition en mettant l'un ou l'autre en avant selon la taille de l'écran utilisé. 
+ 
+ 
+•	L'intérêt
+ 
+Il y a de plus en plus d'appareils de diverses tailles qui sortent (les smartphones de grande taille, les smart TV, les smartwatch, etc.), ce qui représente des cibles bien trop nombreuses et diversifiées si vous souhaitez toutes les atteindre. 
+Le responsive reste donc la solution là moins coûteuse en terme de temps, même si elle est forcément plus longue à appliquer que si on vise une seule catégorie d'appareils. 
+Elle permet aussi de rendre l'expérience plus agréable et donc généralement d'améliorer la satisfaction de l'utilisateur vis à vis de votre site. 
+ 
+ 
+•	Le Mobile First
+ 
+Il existe une technique permettant de concevoir autrement son design : le mobile first. 
+Cette technique consiste à d'abord penser son site (et donc son design) pour le mobile avec la meilleure expérience possible, puis via les moyens techniques liés au responsive, le rendre tout aussi agréable sur tablette ou surtout ordinateur de bureau. 
+C'est une technique qui s'avère très efficace pour des sites orientés contenu car elle met généralement en avant celui-ci et c'est ce que cherche l'utilisateur.
+Pour des sites plus complexes, avec beaucoup de fonctionnalités ou de l'achat en ligne par exemple, le mobile first n'est souvent pas la bonne solution. Cette tendance est néanmoins en train de changer pour le e-commerce car il commence à y avoir plus d'achats effectués depuis un mobile que depuis un ordinateur.
+ 
+•	S'adapter à l'utilisateur...
+•	L'user-agent
+ 
+Cela sort un peu du contexte du responsive car cela consiste à s'adapter à un navigateur et/ou un type d'appareil en particulier (par exemple Safari sur un iPad), mais c'est tout à fait possible en récupérant la chaîne de caractères qui identifie le navigateur et que l'on appelle user-agent.
+Exemple d'user-agent, Safari 9 sur iPad:
+Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1
+Il y a autant d'user-agent différents qu'il y a de navigateurs, d'appareils de systèmes d'exploitation, d'appareils et de numéro de versions différentes pour chacun d'eux.
+À moins de cibler spécifiquement un user-agent, il est recommandé d'utiliser une librairie comme MobileDetect qui permet de détecter les éléments importants dont on a besoin en fonction de l'user-agent : le type d'appareil (bureau, tablette, mobile), le navigateur utilisé et sa version et enfin le système d'exploitation.
+L'utilisation de la détection d'user-agent est toutefois à éviter autant que possible car elle n'est pas des plus fiables.
+ 
+ 
+•	La détection de fonctionnalités
+ 
+Une autre façon d'adapter ou d'améliorer l'expérience utilisateur consiste à détecter si le navigateur utilisé prend bien en charge les fonctionnalités que l'on souhaite utiliser, comme par exemple les vidéos HTML5, la géolocalisation ou encore certaines propriétés CSS. 
+Pour cela, il existe une librairie JavaScript appelée Modernizr qui va détecter le support de plusieurs fonctionnalités (HTML, CSS et JS) et ajouter une class CSS spécifique à chaque fonctionnalité sur l'élément <html>.
+Cela vous permet notamment d'appliquer des styles différents selon le support de certaines fonctions.
+Par exemple, admettons que vous ayez sur votre page un bouton permettant de géolocaliser l'utilisateur. Vous souhaitez cependant afficher ce bouton que si son navigateur supporte la géolocalisation :
+.no-geolocation .btn-geoloc {
+   display: none;
+}
+ 
+.geolocation .btn-geoloc {
+   /* Tous les styles pour votre bouton. En les appliquant uniquement si le navigateur supporte la géolocalisation, vous évitez d'appliquer des styles inutiles puisque le bouton est ensuite masqué. */
+}
+La liste de toutes les fonctionnalités et les class associées est disponible dans la documentation de Modernizr. Celui-ci préfixe la class par no- quand le navigateur ne supporte pas la fonctionnalité liée.
+ 
+ 
+•	Récupération de la taille de l'écran
+ 
+Avant d'aborder une solution puissante d'adaptation du design en fonction de la taille d'écran, il peut être utile de récupérer celle-ci en JavaScript.
+// en vanilla
+window.innerWidth;  // largeur
+window.innerHeight; // hauteur
+ 
+// en jQuery
+$(window).width();  // largeur
+$(window).height(); // hauteur
+Cela comprend uniquement la hauteur visible de la fenêtre, sans les barres d'outils ou de défilement, usuellement le contenu.
+ 
+•	CSS Media Queries
+ 
+Dans la majorité des cas, adapter le design revient à appliquer des styles différents selon la taille de l'écran. C'est donc une tâche plus adaptée au CSS qu'au JS. 
+De plus, appliquer ces styles par le biais de JavaScript risquerait de ralentir leur application et de réduire l'expérience utilisateur.
+C'est donc pour cela qu'en CSS il existe les media queries.
+Ce sont en quelque sorte des règles sur les propriétés du périphérique utilisé qui vont conditionner les styles à appliquer. 
+Elles se présentent sous cette forme :
+@media (conditions) {
+   selecteur {
+       propriété: valeur;
+   }
+}
+Ce n'est au final qu'une condition qui entour un ou plusieurs sélecteurs et ses propriétés.
+ 
+•	Exemple
+ 
+Prenons par un exemple un lien :
+•	Sur desktop (= écran large), nous le voulons bleu et souligné 
+•	Sur mobile (=écran petit), nous voulons juste lui rajouter des marges internes pour qu'il soit plus facilement cliquable avec un doigt 
+•	À l'impression, nous voulons qu'il soit noir, sans marge, mais qu'il reste souligné. 
+On aurait alors le code suivant :
+.mycustomlinks {
+   display: inline-block;
+   color: blue;
+   text-decoration: underline;
+}
+ 
+@media (max-width: 1024px) {
+   .mycustomlinks {
+       padding: 10px;
+   }
+}
+ 
+@media print {
+   .mycustomlinks {
+       padding: 0;
+       color: black;
+   }
+}
+Ici, quelque soit la cible, on affiche un lien en bleu souligné. Ensuite, si la taille de la fenêtre fait 1024px ou moins, on lui ajoute une marge interne.
+Enfin, si on est en train d'imprimer la page, on s'assure que les marges internes sont nulles et on applique une couleur noir aux liens.
+Vous remarquerez donc qu'on peut tout aussi bien cibler une taille d'écran, mais aussi un type de media (screen, print, tv…).
+Il existe une grande quantité de propriétés utilisable dans les conditions des media queries, que je vous invite à aller consulter sur cette page.
+ 
+ 
+•	Breakpoints
+ 
+Quand on parle de Responsive, on utilise très souvent le terme breakpoint pour définir les largeurs d'écran à partir desquelles votre design va changer. 
+Le but n'est pas d'en avoir autant qu'il y a de tailles d'écran différentes, mais simplement les tailles importantes des types d'appareils existants. 
+Un design bien conçu aura en moyenne 3 breakpoints (cela peut aller jusqu'à 6, mais pas plus) :
+ 
+•	desktop
+•	tablette
+ 
+•	mobile
+Pour ne pas se retrouver dans un cas non géré, on choisit généralement le style par défaut qui s'affichera sans media query.
+C'est généralement le desktop qui s'affiche par défaut, mais on peut très bien choisir le mobile : on peut très bien appliquer le mobile first aux media queries.
+ 
+ 
+•	Mobile first en media queries
+ 
+L'intérêt du mobile first en media queries est souvent d'appliquer les styles les plus minimalistes en premier, puis de surcharger via les media queries selon le type d'appareil.
+En effet, il y a souvent d'avantages de styles sur les versions tablette et surtout desktop. 
+Cela revient alors à penser autrement ses styles et du coup ses conditions.
+ 
+ 
+•	Em vs. Px
+ 
+Sur certains navigateurs, certains appareils ou même selon certaines options d'accessibilité, la taille de police par défaut peut changer.
+On a tendance à fixer la taille de police par défaut en px sur nos éléments, mais il est souvent préférable de se baser sur celle du navigateur et d'adapter son design en fonction.
+Il existe pour cela l'unité em qui se base sur la taille de la police de caractères.
+Parce qu'un exemple vaut mieux qu'un long discours :
+/* Ici on fixe la taille du body pour l'exemple, mais on aurait très bien pu mettre 100% comme valeur pour avoir la taille par défaut du navigateur, qui est généralement de 16px, et mieux prendre en compte l'agrandissement éventuel de la taille par défaut */
+body {
+   font-size: 12px;
+}
+ 
+h1 {
+   font-size: 1.333em; // ~16px
+}
+ 
+h2 {
+   font-size: 1.250em; // ~15px
+}
+Il est alors possible d'utiliser cette unité pour tout si on veut s'adapter en fonction de taille de police.
+En gardant ce principe, on peut alors appliquer des media queries non pas sur la taille de l'écran en px, mais sur sa taille en em. Ce qui aurait pour effet d'adapter encore mieux l'expérience pour les personnes augmentant ou réduisant la taille de la police.
+Partant de ce principe, on pourrait par exemple partir sur 5 breakpoints :
+/* Pas de media query : mobile portrait, style par défaut */
+ 
+@media (min-width: 34em) {
+   /* ~544px pour 16px de font-size par défaut */
+   /* Petits écrans: mobile paysage */
+}
+ 
+@media (min-width: 48em) {
+   /* ~768px pour 16px de font-size par défaut */
+   /* Ecrans moyens: tablettes */
+}
+ 
+@media (min-width: 62em) {
+   /* ~992px pour 16px de font-size par défaut */
+   /* Ecrans larges: desktop */
+}
+ 
+@media (min-width: 75em) {
+   /* ~1200px pour 16px de font-size par défaut */
+   /* Ecrans très larges: desktop large */
+}
+ 
+•	L'unité REM
+ 
+L'unité em a pour particularité de s'adapter à son parent.
+Cela signifie que si vous appliquez font-size: 0.5em; aux <li>, si il y a un autre <li> à l'intérieur, son texte sera finalement équivalent à 0.25em si il se basait sur la même taille que son parent. 
+Ce qu'on voudrait au final, ce serait se baser sur la taille de police du body qui ne changera pas puisque cet élément est unique et parent à tous les autres. 
+Il existe donc pour cela l'unité rem signifiant root em et faisant donc référence à la taille de police de la base du document.
+Cette unité est toutefois inutile dans les media-queries puisque celles-ci n'ont pas de lien de parenté avec un quelconque élément intermédiaire.
+Pour reprendre notre exemple, si on avait donc une font-size de 16px par défaut, et que l'on appliquait font-size: 0.5rem; aux <li>, un <li> imbriqué dans un autre aurait alors lui aussi une taille de police de 8px comme son parent, puisque tous deux se baseraient sur la taille de police par défaut.
+ 
+ 
+•	La densité de pixels
+ 
+Sur nos appareils mobiles (smartphones, tablettes) il y a de plus en plus d'écrans haute définition (HDPi, ou Retina qui est une marque déposée par Apple) qui ont une densité de pixels différente à nos écrans habituels.
+Cela signifie qu'ils affichent plus de pixels que les écrans ordinaires, mais sur une surface équivalente (ce qui donne cette netteté supérieure).
+Vous pouvez donc également être amené à cibler ces écrans via vos media queries.
+Il est possible d'utiliser pour cela les propriétés min-pixel-ratio et max-pixel-ratio.
+ 
+•	Exemple
+ 
+.is-hdpi {
+   display: none;
+}
+ 
+@media (min-pixel-ratio: 2) {
+   .is-hdpi {
+       display: block;
+   }
+}
+Ici, on affiche donc les éléments de class is-hdpi uniquement sur des écrans à haute densité de pixels.
+ 
+•	Guidelines responsive
+ 
+Lorsque vous concevez ou développez un site dont le but est d'être consultable sur tous types d'appareils, il y a plusieurs bonnes pratiques à prendre en compte.
+ 
+ 
+•	Flash
+ 
+Sa chute a démarré avec la sortie de l'iPhone, et Adobe le déconseille désormais depuis peu : il faut éviter tout contenu en Flash sur votre site.
+ 
+ 
+•	Tailles adaptées
+ 
+Non seulement la taille de la police doit être adaptée à l'écran (on privilégiera une taille de police plus grande sur des petits écrans), mais également la taille des éléments interactifs (un doigt est moins précis que le pointeur d'une souris, il faut donc des éléments plus grands et bien espacés).
+ 
+ 
+•	Ne pas s'éparpiller
+ 
+Il est possible de mettre plusieurs sélecteurs et propriétés dans une même média query, il faut donc éviter de mettre une media query pour chaque élément, mais plutôt le minimum possible par CSS.
+ 
+ 
+•	Définir le viewport
+ 
+Sur les appareils mobiles et les tablettes, il faut préciser au navigateur qu'il doit afficher la page avec les dimensions de l'appareil et non les dimensions desktop de la page. 
+Il faut donc rajouter cette balise html dans la section <head> de votre page, avant tout appel de CSS :
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+Cela indique alors d'afficher le site avec la largeur d'origine de l'écran, en précisant que le zoom initial est de 1. Les media queries pourront alors prendre en compte la bonne taille d'écran, et l'utilisateur sera toujours libre de zoomer dans la page si il le souhaite.
+ 
+ 
+•	Débuguer et développer efficacement
+ 
+Les outils de développements de Firefox et Chrome embarquent un mode de changement de la taille du viewport afin de tester plus facilement son site dans les différentes tailles d'écran et densité de pixel. 
+Ils ont également une liste prédéfinie de résolutions ou d'appareils correspondant à l'usage courant.
+C'est un atout très important pour développer de manière efficace le côté responsive de votre site.
+ 
+ 
+•	Tester son site
+ 
+Google a depuis longtemps mis à disposition un outil permettant de tester les performances de son site : Google PageSpeed Insight.
+Depuis quelques temps, celui-ci teste indépendamment les performances desktop et mobile, mais également l'expérience utilisateur sur mobile.
+Bien que cela puisse être perfectible car non testé par un humain, il relève tout de même les erreurs majeures comme des liens trop petits ou trop rapprochés.
+ 
+•	Les Frameworks CSS
+ 
+Dans le but d'éviter de réinventer la roue à chaque développement, des Frameworks CSS sont apparus il y a quelques années et contiennent un ensemble de classes prédéfinies pour appliquer des styles que l'on a l'habitude d'utiliser à chaque projet, un peu à la manière du Reset ou Normalize, que ces différents frameworks incluent d'ailleurs généralement.
+ 
+ 
+•	Notions
+ 
+La plupart des frameworks sont composés de 3 parties majeures : une grille (grid), du style pour les éléments de base (texte, titres, tableaux, formulaires et boutons) et enfin des composants plus avancés (barre de navigation, menu déroulant, pagination, etc.).
+Les frameworks sont généralement en OOCSS (CSS Orienté Object) par leur organisation et le nommage des class CSS. C'est simplement une façon de nommer ses class, de construire ses sélecteurs et d'organiser ses éléments.
+ 
+ 
+•	Composition
+ 
+Ces frameworks ont leurs différentes classes généralement groupées en catégories communes: 
+ 
+•	Reset, Normalize, ou une amélioration de l'un des deux 
+•	Grille — Un système de grille CSS pour le positionnement des éléments sous forme de blocs répartis sur une grille, facilitant notamment le responsive 
+•	Visibilité — Des classes pour la visibilité d'éléments selon la taille d'écran (responsive) ou tout simplement afficher/masquer certains éléments 
+•	Positionnement — Des classes facilitant le positionnement de certains éléments, comme un bloc flottant à gauche par exemple 
+•	Typographie — Des classes pour enrichir l'aspect typographique de certains éléments, comme ajouter une bordure en bas d'un titre, ou un style pour mettre en avant des citations (blockquote) 
+ 
+•	Utilitaires — Une catégorie plus générale, rassemblant les classes sans catégorie précise mais pouvant être utile dans toutes les circonstances, comme l'alignement de texte ou bloc, ou encore des classes prédéfinies de marges intérieures (padding) ou extérieures (margin). 
+ 
+ 
+•	La grille
+ 
+Un élément important des frameworks est la présence d'une grille (paramétrable selon le framework).
+En CSS, cela permet de disposer les différents éléments (blocs) de la page sur une grille qui s'adaptera en fonction de la taille de l'écran (responsive donc). 
+Admettons que l'on ait 2 colonnes dans notre grille, que l'on affiche le contenu dans la première, et une sidebar dans la seconde. En mobile, la seconde colonne va alors automatiquement passer sous la première. Les grilles sont de plus en plus élaborés, et il est alors possible d'ajuster la taille et le passage à la ligne d'une colonne selon des breakpoints établis au niveau de la grille.
+Il est donc possible d'avoir un élément qui fasse un tiers de la largeur de la page sur un écran large, tandis qu'il fera la moitié de l'écran sur une tablette, et enfin la totalité de la largeur de l'écran sur un mobile.
+ 
+ 
+•	Les principaux Frameworks CSS
+ 
+Il existe de plus en plus de frameworks CSS, avec plus ou moins d'éléments mis à disposition.
+Dans le cas d'une utilisation complète (sans passer par un préprocesseur Sass ou LESS), l'idéal est d'utiliser celui qui est le proche de votre besoin plutôt que "celui qui fait tout" si vous n'en utiliserez que 10% au final. 
+•	Foundation — l'un des premiers, très complet, une bonne base si vous souhaitez faire un site avec des composants 
+•	Bootstrap — certainement le plus connu, créé à l'origine chez Twitter par 2 employés (aujourd'hui chez Github et Medium). Possède une grille avec 4 breakpoints, beaucoup de styles de base et de composants plus élaborés (avec javascript). À utiliser dans les même cas que Foundation. 
+•	Knacss — Plus light que les autres, se décrit comme un reset survitaminé. À utiliser dans presque tous les sites simples sans besoin spécifique couverts par les autres frameworks. 
+•	Röcssti — Similaire à Knacss 
+ 
+•	Présentation de Bootstrap
+ 
+Parmi tous les frameworks utilisés, Bootstrap est certainement le plus utilisé, et peut-être aussi celui qui a rendu populaire les frameworks de ce type.
+C'est sa richesse, sa documentation et sa simplicité d'utilisation qui l'ont aidé à devenir le plus apprécié et utilisé par les développeurs.
+ 
+ 
+•	Mobile First
+ 
+Bootstrap est devenu, depuis quelques versions, mobile first.
+Toutes les media queries sont basées sur la propriété min-width pour adapter le style à partir d'une largeur minimale du viewport, selon différents paliers (breakpoints).
+ 
+•	Breakpoints
+ 
+Le framework se base sur du mobile first, avec des classes en .col-xs- au niveau de la grille, puis 3 breakpoints pour les écrans plus grands, ce qui nous donne :
+•	xs — breakpoint de base, Très petits appareils, Mobiles (<768px) 
+•	sm — Petits appareils, Tablettes (≥768px) 
+•	md — Appareils de moyenne taille, Ordinateurs (≥992px) 
+•	lg — Appareils larges, Ordinateurs (≥1200px) 
+ 
+•	Utilisation de la grille
+ 
+Via les différents mots-clés associés aux breakpoints et à la grille, il est alors possible d'avoir un rendu différent de la grille pour chaque breakpoint. Dans l'exemple suivant, on va alors avoir :
+•	lg — 3 blocs côte-à-côte ( 50% - 25% - 25% ) 
+•	md — les 2 premiers blocs côte-à-côte, puis le dernier en dessous sur toute la largeur ( 50% - 50% / 100% ) 
+•	sm — le premier bloc en 100%, les deux autres côte-à-côte, l'inverse du breakpoint au dessus ( 100% / 50% - 50% ) 
+•	xs — chaque bloc en 100%, l'un en dessous de l'autre ( 100% / 100% / 100% ) 
+La grille étant sur 12 colonnes, on aura donc le nombre de colonnes suivantes :
+ 
+•	100% — 12 
+•	50% — 6 
+ 
+•	25% — 3 
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+   <!-- Bloc #1 -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+   <!-- Bloc #2 -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-12 col-lg-3">
+   <!-- Bloc #3 -->
+</div>
+On peut constater que le nombre de colonnes indiquer sur les différents breakpoints autres que lg dépasse largement les 12 colonnes de la grille, ceci afin de forcer le passage à la ligne au bout de 12 colonnes. Il reste essentiel de garder 12 colonnes par lignes (ou moins) pour éviter des passages à la ligne indésirables.
+Un bloc à 6 colonnes suivi d'un bloc à 7 colonnes nous amène à 13 colonnes, ce qui fait passer les blocs l'un en dessous de l'autre pour une seule colonne.
+ 
+•	Container, Row et Col
+ 
+Les classes de colonne (col-) doivent toujours se trouver dans un bloc de type ligne (row).
+Cette dernière s'adapte cependant au parent dans lequel elle se trouve et divise donc sa largeur en 12 colonnes.
+Il est donc préférable d'utiliser un bloc de type conteneur (container) auquel on va attribuer une largeur (qui peut-être 100% du viewport) puis notre grille à l'intérieur. Bien que l'on puisse dépasser le nombre de colonnes pour le passage à la ligne, il est préférable de maitriser le changement de ligne par un nouveau bloc row, en gardant 12 colonnes par ligne. 
+On peut alors compléter l'exemple précédent :
+<div class="container">
+   <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+           <!-- Bloc #1 -->
+       </div>
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+           <!-- Bloc #2 -->
+       </div>
+       <div class="col-xs-12 col-sm-6 col-md-12 col-lg-3">
+           <!-- Bloc #3 -->
+       </div>
+   </div>
+</div>
+ 
+•	Réordonner les colonnes
+ 
+Bootstrap permet également de réordonner les colonnes. Une technique assez complexe à maitriser au début, mais qui peut-être très utile ensuite.
+Pour simplifier notre exemple, on va partir sur 2 breakpoints seulement : Mobile et Desktop.
+Prenons par exemple un simple blog à 2 colonnes, la sidebar à gauche, puis le contenu à droite. Si sur mobile, vos colonnes passent l'une en dessous de l'autre, cela signifie que la sidebar serait en première, puis le contenu. Or il est préférable d'avoir l'inverse et d'afficher le contenu d'abord sur mobile, pour aller à l'essentiel. Comme on est en mobile first, cela veut donc dire que l'on fait d'abord la colonne du contenu, puis celle de la sidebar :
+<div class="container">
+   <div class="row">
+       <div class="col-xs-12">
+           <!-- Contenu -->
+       </div>
+       <div class="col-xs-12">
+           <!-- Sidebar -->
+       </div>
+   </div>
+</div>
+On commence par mettre les bonnes tailles à nos blocs, col-lg-9 pour le contenu, col-lg-3 pour la sidebar.
+Pour inverser leur position, on va alors pousser (push) le contenu de 3 colonnes, puis tirer (pull) la sidebar de 9 colonnes.
+Cela donne le code suivant :
+<div class="container">
+   <div class="row">
+       <div class="col-xs-12 col-lg-9 col-lg-push-3">
+           <!-- Contenu -->
+       </div>
+       <div class="col-xs-12 col-lg-3 col-lg-pull-9">
+           <!-- Sidebar -->
+       </div>
+   </div>
+</div>
+ 
+•	Afficher / Masquer
+ 
+Vous pouvez également forcer l'affichage ou masquer des éléments selon le breakpoint dans lequel vous vous trouvez, via les classes .visible-*-* ou .hidden-*.
+La première astérisque dans les deux étant le breakpoint (xs, md, etc.), le second étant le type de display (inline-block, block, inline).
+Sur notre exemple précédent, plutôt qu'un col-xs-12 sur la sidebar on aurait donc pu mettre hidden-xs pour masquer la sidebar sur mobile. 
+ 
+ 
+•	Boutons & Formulaires
+ 
+Il est également possible d'utiliser les styles prédéfinis pour les boutons, ainsi que les formulaires.
+Bootstrap n'applique pas de style par défaut aux différents éléments tant que les classes qui lui sont spécifiques ne sont pas appliquées sur les éléments HTML.
+Même avec Bootstrap dans la page, si vous enlevez toutes les classes du code suivant, il n'aura pas du tout le même style.
+Et pourtant ce sont ses uniques styles dédiés à ces éléments (à l'exception du bouton qui a plusieurs variantes).
+<form class="form-horizontal">
+   <div class="form-group">
+       <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+       <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+       </div>
+   </div>
+   <div class="form-group">
+       <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+       <div class="col-sm-10">
+           <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+       </div>
+   </div>
+   <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-10">
+           <div class="checkbox">
+               <label>
+                   <input type="checkbox"> Remember me
+               </label>
+           </div>
+       </div>
+   </div>
+   <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-10">
+           <button type="submit" class="btn btn-default">Sign in</button>
+       </div>
+   </div>
+</form>
+ 
+ 
+•	Typographie
+ 
+Bootstrap met également à disposition quelques class CSS utiles pour la typographie.
+Bien qu'il applique un style particulier à chaque élément de type <h1>, <h2>, etc., il peut parfois être utile d'appliquer le style du <h6> au <h1>.
+Dans ce cas là, il ne faut surtout pas remplacer le <h1> par un <h6> puisque cela n'a pas la même signification sémantique, mais simplement utiliser la class à disposition :
+<h1 class="h6">.
+Le framework ne met pas seulement à disposition des classes, il tente également de styliser des éléments HTML censés être prédisposés à des usages sémantiques spécifiques, comme par exemple <mark> pour surligner du texte, <del> pour marquer du texte comme supprimé ou au contraire <ins> pour du texte inséré, ou encore <strong> pour mettre en avant du texte plus important en gras. 
+Enfin, il y a également des classes pour l'alignement du texte dans un paragraphe ( text-left, text-center, text-right, text-justify, text-nowrap), ou la casse du texte (text-lowercase, text-uppercase, text-capitalize).
+Toute la documentation sur la partie Typographie de Bootstrap est disponible sur cette page. 
+ 
+ 
+•	Bootstrap 4
+ 
+La quatrième version du framework, en version alpha au moment de la rédaction de cette fiche, devrait rester sur les mêmes bases, mais avec une conception différente au niveau CSS. Les changements principaux apportés par la nouvelle version peuvent être consultés sur cette page qui met en avant les différences.
+ 
+•	Compatibilité
+ 
+ 
+Avec la disparition progressive de Flash, ce qui manquait en HTML/CSS était le fait de pouvoir faire des animations poussées (ou même simples, sans nécessiter de nombreuses lignes de codes).
+Ce qui était auparavant faisable uniquement avec du JavaScript qui interagissait sur le CSS est faisable uniquement en CSS3.
+Il est donc possible de faire des effets simples (transitions), des effets plus poussées (animations), et combiner des effets de transformations.
+Mais CSS3 c'est aussi les bords arrondis (border-radius), les options avancées sur les background-image et des sélecteurs avancés, entre autres.
+ 
+•	Les préfixes propriétaires
+ 
+Les spécifications mettant du temps à être validées, les navigateurs ont souvent tendance à mettre en place une syntaxe qui les arrange en attendant qu'elle soit finalisée.
+Ils utilisent donc des préfixes pour chaque propriété : 
+•	-moz- pour Mozilla Firefox
+•	-webkit- pour Safari, Chrome et Opera
+•	-ms- pour Internet Explorer et Edge
+Néanmoins, Webkit ayant été le moteur le plus mis en avant grace à Chrome, certains navigateurs (comme Firefox) prennent désormais en compte le préfixe -webkit- bien qu'ils n'utilisent pas ce moteur de rendu (À noter cependant que Chrome et Opera utilisent Blink, un fork d'Opera créé par Google).
+ 
+•	Connaître le niveau de compatibilité des navigateurs
+ 
+Les différentes versions des navigateurs ne sont pas toutes compatibles avec toutes les propriétés disponibles, que ce soit en CSS 3, HTML5, JavaScript, etc.
+Il existe pour cela des sites qui recensent les différentes fonctionnalités/technologies et la compatibilité des navigateurs suivant leurs versions. 
+En voici deux indispensables pour avoir ce type d'information : 
+•	caniuse.com : Liste toutes les technologies front-end disponibles et leur compatibilité avec les différentes versions des navigateurs desktop et mobiles. Donne également la liste des bugs connus dans certains cas. 
+•	html5please : Un peu plus simpliste, liste également toutes les fonctionnalités que l'on peut utiliser sans se soucier de la compatibilité (ou non) sur un périmètre navigateur spécifique. 
+ 
+•	Les transitions
+ 
+Les transitions, ce sont les animations CSS les plus simples à mettre en place mais aussi les plus basiques. 
+Elles concernent le changement de valeur d'une ou plusieurs propriétés sur un sélecteur, avec une certaine fonction de transition (accélération, etc.) pendant une durée spécifique.
+Il peut s'agir par exemple de changer l'opacité d'un élément de 0.25 à 1.0 avec une transition en douceur plutôt que de passer directement de 0.25 à 1.0.
+Prenons par exemple un div, qui aura par défaut une opacité à 0.25, et au survol on veut que son opacité passe à 1.0 :
+.mydiv {
+   opacity: 0.25;
+   transition: opacity 1s linear;
+}
+.mydiv:hover {
+   opacity: 1;
+}
+Ici, grace à la propriété transition quel l'on applique sur la propriété opacity uniquement (car il n'y a qu'elle qui change), on aura un effet de transition linéaire d'une seconde dès que cette propriété changera de valeur : ce qui est le cas au survol (hover).
+ 
+ 
+•	Transition, la propriété raccourcie
+ 
+Un peu comme margin ou font, la propriété transition est une version raccourcie se décomposant en 4 autres propriétés : 
+transition: {transition-property} {transition-duration} {transition-timing-function}  {transition-delay};
+•	transition-property : all (par défaut) ou la propriété sur laquelle on veut appliquer la transition 
+•	transition-duration : la durée de la transition (toujours préciser l'unité, sou ms)
+•	transition-timing-function : le nom ou la fonction qui détermine la façon dont sont calculées les valeurs intermédiaires (exemple: linear, ease-in, etc.)
+•	transition-delay : le délai avant que la transition démarre (même type de valeur que transition-duration)
+ 
+ 
+•	Transitions multiples
+ 
+Il est tout à fait possible d'appliquer une transition différente par propriété, sur un même élément, et ce avec une seule déclaration de la propriété transition.
+Il suffit pour cela de séparer les valeurs par des virgules : 
+.mydiv {
+   opacity: 0.25;
+   color: #FFFFFF;
+   transition: opacity 0.5s, color 1s 0.5s;
+}
+ 
+.mydiv:hover {
+   opacity: 1;
+   color: #BBBBBB;
+}
+Ici on va appliquer 2 transitions différentes, la première sur opacity, d'un durée de 500ms (=0.5s), puis la seconde sur color d'une durée d'une seconde mais avec un délai de 500ms pour qu'elle démarre après opacity.
+ 
+ 
+•	Évènements JavaScript
+ 
+Parfois il est nécessaire d'exécuter un script qu'à partir du moment où la transition est terminée.
+Malgré le fait que celle-ci soit uniquement du CSS, des évènements JavaScript sont déclenchés par le navigateur sur l'élément lorsqu'une transition se termine.
+var e = document.getElementById("monLien");
+e.addEventListener("transitionend", listener, false);
+ 
+function listener(e) {
+   console.log(
+       e.type, // transitionend
+       e.propertyName, // la propriété CSS pour laquelle la transition est appliquée et terminée
+       e.elapsedTime, // le temps écoulé
+       e.pseudoElement // le nom du pseudo élément sur lequel est appliqué la transition, si cela s'applique
+   );
+}
+Attention: l'évènement est déclenché autant de fois qu'il y a de propriétés pour lesquelles la transition s'applique.
+Note: même si cela ne fait pas parti de la spécification des transitions, Internet Explorer 10 implémente également un évènement transitionstart.
+ 
+•	Les animations
+ 
+Alors que les transitions permettent d'effectuer une animation assez simple entre plusieurs états d'un éléments et de ses propriétés de manière automatique, les animations permettent un contrôle plus précis sur les différentes étapes de l'animation et d'autres éléments précis avant, pendant et après l'animation. 
+Avec une transition, en utilisant une seule classe CSS, vous pourriez par exemple faire en sorte que votre lien passe de la couleur vert au bleu.
+Avec une animation en revanche, vous pouvez faire en sorte que votre lien passe par toutes les couleurs de l'arc-en-ciel, et ce de manière répétée.
+Ce cas précis est bien entendu à éviter car il risque de gêner fortement la perception des liens de votre site par les utilisateurs. 
+ 
+ 
+•	Définition d'une animation
+ 
+Avant toute utilisation d'une animation, elle doit être définie par un nom et ses étapes.
+On utilise pour cela la propriété @keyframes qui va permettre de définir le nom de votre animation et ses différentes étapes :
+@keyframes monAnimation {
+   …
+}
+Pour définir ensuite les différentes étapes, il s'agit simplement d'indiquer à quel pourcentage d'avancement de l'animation vous souhaitez appliquer des propriétés à votre élément, puis indiquer les propriétés correspondantes.
+/*
+   Ici on va par exemple définir qu'au début de l'animation, le texte de notre élément est bleu, puis au milieu de l'animation il est rouge pour finir vert.
+   0% étant le début, 50% le milieu et 100% la fin de l'animation.
+*/
+ 
+@keyframes monAnimation {
+   0% {
+       color: #337AB7; // Bleu
+   }
+   50% {
+       color: #D9534F; // Rouge
+   }
+   100% {
+       color: #5CB85C; // Vert
+   }
+}
+Si on ne voulait que 2 étapes à la manière d'une transition, il existe également 2 mots clés plutôt que 0%/100% : from et to.
+C'est particulièrement utile dans le cas où vous souhaitez agir sur plusieurs propriétés en même temps. Vous avez alors une méthode plus structurée que la transition.
+@keyframes monAnimation {
+   from {
+       color: #337AB7; // Bleu
+   }
+   to {
+       color: #5CB85C; // Vert
+   }
+}
+ 
+ 
+•	Appliquer l'animation
+ 
+Une fois votre animation définie, il ne vous reste plus qu'à l'appliquer sur l'élément en question.
+Pour cela, une propriété : animation-name, à laquelle il faut ajouter la durée via animation-duration.
+.monLien {
+   animation-name: monAnimation;
+   animation-duration: 3s;
+}
+ 
+ 
+•	Configuration de l'animation
+ 
+De la même façon que les transitions (et même plus encore), il est possible de configurer certaines options de l'animation :
+•	animation-delay — pour démarrer l'animation après un certain temps 
+•	animation-direction — pour définir le sens de l'animation (du début à la fin, inversé, alterné, etc.)
+•	animation-iteration-count — le nombre de fois que doit se jouer l'animation (de 1 à l'infini)
+•	animation-play-state — pour mettre en pause et reprendre l'animation (au survol par exemple)
+•	animation-timing-function — la fonction d'animation à utiliser pour calculer les valeurs des étapes de l'animation 
+•	animation-fill-mode — défini quelles valeurs doit conserver l'élément avant et après l'animation 
+.monLien {
+   animation-name: monAnimation;
+   animation-delay: 1s;
+   animation-duration: 3s;
+   animation-iteration-count: 3;
+   animation-direction: alternate;
+   animation-fill-mode: forwards;
+}
+ 
+/*
+   Ici, notre animation va se jouer 
+   - après 1 seconde d'attente,
+   - pendant 3 secondes,
+   - 3 fois de suite,
+   - en alternant début-fin/fin-début,
+   - et laissera appliquées les propriétés de la dernière étape de l'animation à la fin de celle-ci.
+*/
+ 
+ 
+•	Les évènements JavaScript
+ 
+De la même manière que pour les transitions, le navigateur déclenche des évènements sur l'élément au début, pendant et la fin de l'animation.
+var lien = document.getElementById("monLien");
+lien.addEventListener("animationstart", listener, false);
+lien.addEventListener("animationend", listener, false);
+lien.addEventListener("animationiteration", listener, false);
+ 
+function listener(e) {
+   console.log(
+       e.type, // animationstart, animationend ou animationiteration
+       e.animationName, // le nom de l'animation CSS exécutée
+       e.elapsedTime // le temps écoulé
+   );
+}
+ 
+•	Les transformations
+ 
+Les transformations CSS sont à la fois puissantes, variées et complexes. En effet, elles permettent d'appliquer un grand nombre d'effets divers et variés à vos éléments, mais compliquent parfois la mise en page. 
+Les transformations permettent aussi bien d'agir en 2D qu'en 3D sur votre élément.
+ 
+ 
+•	La propriété
+ 
+Pour appliquer une transformation, le mot clé à utiliser est transform, auquel vous passez la fonction de transformation à appliquer avec sa valeur.
+Si l'on veut par exemple appliquer un zoom 2x à un élément, on utilisera :
+.myElement {
+   transform: scale(2);
+}
+ 
+ 
+•	Les différentes fonctions
+ 
+Il existe un grand nombre de fonctions de transformation applicables :
+.myElement {
+   transform: translate(12px, 50%);                 // Déplace l'élément en horizontalement et verticalement
+   transform: translateX(2em);                      // Déplace l'élément horizontalement uniquement
+   transform: translateY(3in);                      // Déplace l'élément verticalement uniquement
+   transform: scale(2, 0.5);                        // Modifie le zoom horizontal et vertical de l'élément (ou des deux si une seule valeur)
+   transform: scaleX(2);                            // Modifie le zoom horizontal uniquement
+   transform: scaleY(0.5);                          // Modifie le zoom vertical uniquement
+   transform: rotate(0.5turn);                      // Applique une rotation à 180° = 180deg
+   transform: skew(30deg, 20deg);                   // Permet d'obliquer l'élément horizontalement et verticalement
+   transform: skewX(30deg);                         // Permet d'obliquer l'élément horizontalement uniquement
+   transform: skewY(1.07rad);                       // Permet d'obliquer l'élément verticalement uniquement
+   transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0); // Déforme l'élément selon une matrice de données
+   /*
+   Toutes les autres propriétés sont équivalentes aux précédentes mais s'appliquent en 3D et non en 2D
+    */
+   transform: matrix3d(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0);
+   transform: translate3d(12px, 50%, 3em);
+   transform: translateZ(2px);
+   transform: scale3d(2.5, 1.2, 0.3);
+   transform: scaleZ(0.3);
+   transform: rotate3d(1, 2.0, 3.0, 10deg);
+   transform: rotateX(10deg);
+   transform: rotateY(10deg);
+   transform: rotateZ(10deg);
+   transform: perspective(17px);
+}
+ 
+ 
+•	La configuration
+ 
+Comme les transitions et animations, les transformations possèdent d'autres propriétés permettant d'ajuster la façon dont sont appliquées celles-ci :
+•	transform-origin — permet de modifier le point d'origine du repère utilisé par la transformation 
+•	transform-style — dans le cas d'une transformation 3D, permet d'indiquer si les éléments enfants sont dans un plan 3D distinct ou aplatis dans le plan de l'élément sur lequel est appliqué la transformation 
+•	transform-box — défini à quel type de box s'applique la transformation (similaire à box-sizing mais pour les transformations)
+•	perspective — permet d'ajuster la dimension de la perspective dans le cas d'une transformation dans un plan 3D 
+•	perspective-origin — permet de définir le point d'origine de la perspective (par défaut il s'agit du centre de l'élément)
+•	backface-visibility — permet de définir si la vue arrière d'un élément doit être visible comme dans un miroir si le cas se présente (dans une rotation 3D par exemple, comme une carte)
+ 
+ 
+•	Exemple
+ 
+L'un des exemples les plus faciles d'utilisation poussée des transformations (couplée aux transitions) est le cas d'une carte qui se retourne.
+Le HTML
+<div class="card-container">
+   <div class="card">
+       <div class="card-front">
+           face avant
+       </div>
+       <div class="card-back">
+           face arrière
+       </div>
+   </div>
+</div>
+Le CSS
+.card-container, .card-front, .card-back {
+   width  : 320px;
+   height : 427px;
+}
+.card-container {
+   perspective     : 1000px;
+   transform-style : preserve-3d;
+   border          : 1px solid #ccc;
+}
+ 
+.card {    
+   transition              : 0.6s;
+   transform-style         : preserve-3d;
+   position                : relative;
+}
+ 
+.card-front, .card-back {
+   -webkit-backface-visibility : hidden;
+   backface-visibility         : hidden;
+   transition                  : 0.6s;
+   transform-style             : preserve-3d;
+   transform                   : rotateY(0deg);
+   position                    : absolute;
+   top                        : 0;
+   left                        : 0;
+}
+ 
+.card-front {
+   background : lightgreen;
+   z-index    : 2;
+   transform  : rotateY(0deg);
+}
+.card-back {
+   background : lightblue;
+   transform  : rotateY(-180deg);
+}
+ 
+.card-container:hover .card-front {
+   transform : rotateY(180deg);
+}
+ 
+.card-container:hover .card-back {
+   transform : rotateY(0deg);
+}
+ 
+
